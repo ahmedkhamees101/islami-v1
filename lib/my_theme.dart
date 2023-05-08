@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   static const Color lightColor = Color(0xFFB7935F);
-
-
   static ThemeData lightTheme = ThemeData(
     primaryColor: lightColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
