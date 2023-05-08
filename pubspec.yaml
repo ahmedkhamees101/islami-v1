@@ -50,6 +50,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.2.19
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/imgs/splash.png
+  android: true
+  ios: true
 
 
 
