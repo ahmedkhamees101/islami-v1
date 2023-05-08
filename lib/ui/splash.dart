@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home_screen.dart';
+import 'package:islami/ui/home_screen.dart';
 
 class Splash extends StatefulWidget {
 static const String routeName='splash';
@@ -9,10 +9,15 @@ static const String routeName='splash';
 }
 
 class _SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
+    _Navigator();
+  }
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 4),() {
+    Future.delayed(Duration(milliseconds: 1500),() {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     },);
     return Scaffold(
@@ -24,5 +29,10 @@ class _SplashState extends State<Splash> {
 
       ),
     );
+  }
+
+  void _Navigator() async{
+    await Future.delayed(Duration(seconds: 2),(){});
+    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
 }
