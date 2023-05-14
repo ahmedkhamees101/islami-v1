@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/home_screen.dart';
 
+import 'my_theme.dart';
+
 class Splash extends StatefulWidget {
 static const String routeName='splash';
 
@@ -21,18 +23,19 @@ class _SplashState extends State<Splash> {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     },);
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(image:AssetImage('assets/imgs/logo.png'))
-                ),
+          child: Image.asset(MyTheme.themeMode == ThemeMode.light?
+              'assets/imgs/splash.png':'assets/imgs/dark_splash.png',
+
 
       ),
+    ),
     );
   }
 
-  void _Navigator() async{
-    await Future.delayed(Duration(seconds: 2),(){});
-    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+  void _Navigator() async {
+    await Future.delayed(Duration(seconds: 2), ()
+    {Navigator.pushReplacementNamed(context, HomeScreen.routeName);});
+
   }
 }
