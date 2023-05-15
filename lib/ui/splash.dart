@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/home_screen.dart';
 
-import 'my_theme.dart';
 
 class Splash extends StatefulWidget {
 static const String routeName='splash';
@@ -24,8 +23,8 @@ class _SplashState extends State<Splash> {
     },);
     return Scaffold(
       body: Container(
-          child: Image.asset(MyTheme.themeMode == ThemeMode.light?
-              'assets/imgs/splash.png':'assets/imgs/dark_splash.png',
+          child: Image.asset(Brightness.dark == Theme.of(context).brightness?
+          'assets/imgs/dark_splash.png':'assets/imgs/splash.png',fit: BoxFit.fill,
 
 
       ),

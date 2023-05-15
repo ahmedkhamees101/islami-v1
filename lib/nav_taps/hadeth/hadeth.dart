@@ -23,14 +23,14 @@ class _HadethTapState extends State<HadethTap> {
             Image(image: AssetImage('assets/imgs/hadeth_icon.png')),
             Divider(
               thickness: 3,
-              color: MyTheme.lightColor,
+              color: MyTheme.primaryLightColor,
             ),
-            Text('ahadeth'),
+            Text('ahadeth',style: Theme.of(context).textTheme.labelMedium),
             Divider(
               thickness: 3,
-              color: MyTheme.lightColor,
+              color: MyTheme.primaryLightColor,
             ),
-            allHadeth.isEmpty?Center(child: CircularProgressIndicator(color: MyTheme.lightColor),):
+            allHadeth.isEmpty?Center(child: CircularProgressIndicator(color: MyTheme.titles),):
             Expanded(
               flex: 2,
               child: ListView.separated(itemBuilder: (context,index){
@@ -40,7 +40,7 @@ class _HadethTapState extends State<HadethTap> {
                     thickness: 1.5,
                     indent: 40,
                     endIndent: 40,
-                    color: MyTheme.lightColor,
+                    color: MyTheme.primaryLightColor,
                   ),
                   itemCount: allHadeth.length),
             )

@@ -9,7 +9,8 @@ class QuranContent extends StatelessWidget {
     QuranArgs arg = ModalRoute.of(context)?.settings.arguments as QuranArgs;
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/imgs/main_bg.png'),fit: BoxFit.fill),
+        image: DecorationImage(image: AssetImage(Brightness.dark == Theme.of(context).brightness?
+        'assets/imgs/dark_main_bg.png':'assets/imgs/main_bg.png'),fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(

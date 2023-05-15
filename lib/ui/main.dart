@@ -8,13 +8,12 @@ void main()=>runApp(MyApp());
 
 
 class MyApp extends StatelessWidget{
-  bool isDark = true;
   @override
   Widget build(BuildContext context){
     return MaterialApp(
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
-      themeMode: MyTheme.themeMode,
+      themeMode:ThemeMode.dark,
       debugShowCheckedModeBanner: false,
         initialRoute: Splash.routeName,
       routes: {
