@@ -132,18 +132,18 @@ class QuranTap extends StatelessWidget {
             child: Image(image: AssetImage('assets/imgs/top_icon.png'))),
         const Divider(
           thickness: 3,
-          color: MyTheme.lightColor,
+          color: MyTheme.primaryLightColor,
 
         ),
         Container(
             alignment: Alignment.center,
             child: Text(
               'SuraNames',
-              style: Theme.of(context).textTheme.bodyMedium,
+              style:Theme.of(context).textTheme.labelMedium
             )),
         const Divider(
           thickness: 3,
-          color: MyTheme.lightColor,
+          color: MyTheme.primaryLightColor,
 
         ),
         Expanded(
@@ -160,13 +160,13 @@ class QuranTap extends StatelessWidget {
                       },
                       child: Text(
                         suraNames[index],
-                        style: TextStyle(color: Colors.black),
+                        style: Theme.of(context).textTheme.bodySmall,
                       )));
             },
             separatorBuilder: (context, index) {
               return const Divider(
                 thickness: 1,
-                color: MyTheme.lightColor,
+                color: MyTheme.primaryLightColor,
                 indent: 50,
                 endIndent: 50,
               );

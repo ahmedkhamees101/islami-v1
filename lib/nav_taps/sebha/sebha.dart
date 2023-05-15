@@ -15,10 +15,10 @@ class _SebhaTapState extends State<SebhaTap> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/imgs/main_bg.png'), fit: BoxFit.fill),
-      ),
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //       image: AssetImage('assets/imgs/main_bg.png'), fit: BoxFit.fill),
+      // ),
       child: Scaffold(
         body: Center(
           child: Column(
@@ -29,7 +29,9 @@ class _SebhaTapState extends State<SebhaTap> {
                 children: [
                   Container(
                     margin: EdgeInsets.only(left: 80),
-                      child: Image(image: AssetImage('assets/imgs/sebha_head.png'))),
+
+                      child: Image(image: AssetImage(Brightness.dark==Theme.of(context).brightness?
+                          'assets/imgs/sebha_dark_head.png':'assets/imgs/sebha_head.png'))),
                   Container(
                     margin: EdgeInsets.only(top: 78),
                     child: InkWell(
@@ -41,7 +43,8 @@ class _SebhaTapState extends State<SebhaTap> {
                       child: Transform.rotate(
                         angle:rotation ,
                         child: Image(
-                          image: AssetImage('assets/imgs/sebha_body.png'),
+                          image: AssetImage(Brightness.dark==Theme.of(context).brightness?
+                          'assets/imgs/sebha_dark_body.png':'assets/imgs/sebha_body.png',),
                           height: 200,
                           width: 200,
                         ),
@@ -51,17 +54,14 @@ class _SebhaTapState extends State<SebhaTap> {
                 ],
               ),
               Text('$tost',
-                  style: TextStyle(
-                      color: Color(0xFF242424),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500)),
+                  style: Theme.of(context).textTheme.labelMedium ),
 
               Container(
                   alignment: Alignment.center,
                   width: 100,
                   height: 70,
                   decoration: BoxDecoration(
-                      color: MyTheme.lightColor,
+                      color: Theme.of(context).accentColor,
                       borderRadius: BorderRadius.circular(24)),
                   child: Text(
                     "$counter",
@@ -77,14 +77,13 @@ class _SebhaTapState extends State<SebhaTap> {
                 },
                 child: Text(
                   ' التكرار',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                  style:Theme.of(context).textTheme.bodyMedium,
                 ),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 30,vertical: 10),
                   shape: RoundedRectangleBorder(
 
                       borderRadius: BorderRadius.circular(24)),
-                  backgroundColor: MyTheme.lightColor,
                 ),
               )
             ],
