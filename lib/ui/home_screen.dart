@@ -15,7 +15,7 @@ static const String routeName='home';
 
 class _HomeScreenState extends State<HomeScreen> {
   int index=0;
-  List<Widget> taps=[QuranTap(),RadioTap(),SebhaTap(),HadethTap()];
+  List<Widget> taps=[QuranTap(),HadethTap(),SebhaTap(),RadioTap()];
   @override
   Widget build(BuildContext context) {
     return  Stack(
@@ -40,12 +40,12 @@ class _HomeScreenState extends State<HomeScreen> {
             items: [
               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/quran.png'),size: 30,),label: ' Quran',
               ),
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/radio.png'),size: 30,),label: 'Radio',
-                  ),
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/sebha.png'),size: 30,),label: 'Sebha',
-                  ),
               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/hadeth.png'),size: 30,),label: 'Hadeth',
                   ),
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/sebha.png'),size: 30,),label: 'Sebha',
+              ),
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/radio.png'),size: 30,),label: 'Radio',
+              ),
             ],
           ),
         ),

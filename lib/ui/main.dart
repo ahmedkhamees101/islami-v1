@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
-      themeMode:ThemeMode.dark,
+
       debugShowCheckedModeBanner: false,
         initialRoute: Splash.routeName,
       routes: {
