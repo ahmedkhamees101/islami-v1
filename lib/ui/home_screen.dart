@@ -4,7 +4,8 @@ import 'package:islami/nav_taps/quran/quran.dart';
 import 'package:islami/nav_taps/radio/radio.dart';
 import 'package:islami/nav_taps/sebha/sebha.dart';
 
-import 'my_theme.dart';
+import '../nav_taps/settings_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
 static const String routeName='home';
@@ -15,7 +16,7 @@ static const String routeName='home';
 
 class _HomeScreenState extends State<HomeScreen> {
   int index=0;
-  List<Widget> taps=[QuranTap(),HadethTap(),SebhaTap(),RadioTap()];
+  List<Widget> taps=[QuranTap(),HadethTap(),SebhaTap(),RadioTap(),SettingScreen()];
   @override
   Widget build(BuildContext context) {
     return  Stack(
@@ -46,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/imgs/radio.png'),size: 30,),label: 'Radio',
               ),
+              BottomNavigationBarItem(icon:Icon(Icons.settings),label: 'Settings')
             ],
           ),
         ),
