@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:islami/ui/my_theme.dart';
 import 'package:islami/nav_taps/quran/quran_args.dart';
@@ -120,7 +122,6 @@ class QuranTap extends StatelessWidget {
     "الفلق",
     "الناس"
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,18 +134,14 @@ class QuranTap extends StatelessWidget {
         const Divider(
           thickness: 3,
           color: MyTheme.primaryLightColor,
-
         ),
         Container(
             alignment: Alignment.center,
-            child: Text(
-              'SuraNames',
-              style:Theme.of(context).textTheme.labelMedium
-            )),
+            child: Text('SuraNames',
+                style: Theme.of(context).textTheme.labelMedium)),
         const Divider(
           thickness: 3,
           color: MyTheme.primaryLightColor,
-
         ),
         Expanded(
           flex: 2,
@@ -155,7 +152,7 @@ class QuranTap extends StatelessWidget {
                   alignment: Alignment.center,
                   child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, QuranContent.routName,
+                        Navigator.pushNamed(context, QuranContent.routeName,
                             arguments: QuranArgs(index, suraNames[index]));
                       },
                       child: Text(

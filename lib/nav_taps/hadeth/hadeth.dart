@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/nav_taps/hadeth/hadeth_content.dart';
 
 import '../../ui/my_theme.dart';
 import 'hadeth_args.dart';
@@ -34,7 +35,14 @@ class _HadethTapState extends State<HadethTap> {
             Expanded(
               flex: 2,
               child: ListView.separated(itemBuilder: (context,index){
-                return Center(child: Text(allHadeth[index].title,style: Theme.of(context).textTheme.bodySmall,),);
+                return Center(child: InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, HadethContent.routeName,
+                    arguments:allHadeth[index]);
+                  },
+
+                    child: Text(
+                      allHadeth[index].title,style: Theme.of(context).textTheme.bodySmall,)),);
               },
                   separatorBuilder:(context,index)=>Divider(
                     thickness: 1.5,
