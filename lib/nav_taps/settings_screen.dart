@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/my_theme.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../providers/theme_provider.dart';
 
-class SettingScreen extends StatefulWidget {
+class SettingScreen extends StatelessWidget {
   @override
-  State<SettingScreen> createState() => _SettingScreenState();
-}
 
-class _SettingScreenState extends State<SettingScreen> {
   bool Light = false;
-  List<bool> _selectedLanguage = [true, false];
-
+  bool english = false;
   @override
   Widget build(BuildContext context) {
-    var prov = Provider.of<ThemeProvider>(context);
-    List<Widget> language = [
-      Text('ar',),
-      Text('en'),
-    ];
-    bool isEn = true;
+    var prov = Provider.of<MyProviders>(context);
+
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 40, left: 10),
+        margin: EdgeInsets.only(top: 50, left: 10),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
@@ -31,32 +23,34 @@ class _SettingScreenState extends State<SettingScreen> {
               Row(
                 children: [
                   Text(
-                    'Language',
+                    AppLocalizations.of(context)!.language,
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.25,
+                    width: MediaQuery.of(context).size.width * 0.3,
                   ),
-                  ToggleButtons(
-                      onPressed: (int index) {
-                        setState(() {});
-                        for (int i = 0; i < _selectedLanguage.length; i++) {
-                          _selectedLanguage[i] = i == index;
+                  Switch(
+                      value: english,
+                      activeColor: MyTheme.primaryDarkColor,
+                      onChanged: (bool value) {
+                        english = value;
+                        if (english) {
+                          prov.changeLanguage(Locale("ar"));
+                        } else {
+                          prov.changeLanguage(Locale("en"));
                         }
-                      },
-                      selectedColor:prov.themeMode==ThemeMode.light?MyTheme.primaryLightColor: MyTheme.primaryDarkColor,
-                      children: language,
-                      isSelected: _selectedLanguage)
+                        ;
+                      })
                 ],
               ),
               Row(
                 children: [
                   Text(
-                    'Theme ',
+                    AppLocalizations.of(context)!.theme,
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.4,
+                    width: MediaQuery.of(context).size.width * 0.5,
                   ),
                   Switch(
                       value: Light,
@@ -69,7 +63,6 @@ class _SettingScreenState extends State<SettingScreen> {
                           prov.changeTheme(ThemeMode.light);
                         }
                         ;
-                        setState(() {});
                       })
                 ],
               )
